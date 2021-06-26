@@ -1,2 +1,2 @@
 # MyRepo
-Just for Dev
+All about Games and Web development
