@@ -48,6 +48,7 @@ font-family:OCR A Std, monospace;
 position:relative;
 bottom:150px;
 left:-40px;
+display:none;
 }
 #PswVisible1{
 color:#ccc;
@@ -62,6 +63,7 @@ left:-40px;
 position:relative;
 left:88px;
 bottom:165px;
+display:none;
 }
 #GenerateButBG{
 width:100px;
@@ -94,6 +96,7 @@ text-decoration:none;
 border-radius:30px;
 padding:10px;
 box-shadow:0 0 10px #aaa;
+display:none;
 }
 #ConfirmBut{
 bottom:0px;
@@ -109,6 +112,7 @@ font-family:OCR A Std, monospace;
 position:relative;
 bottom:70px;
 right:20px;
+display:none;
 }
 #ConfirmationcodeID{
 color:#ccc;
@@ -123,6 +127,7 @@ outline:none;
 position:relative;
 bottom:90px;
 right:20px;
+display:none;
 }
 #Name{
 color:blue;
@@ -843,6 +848,22 @@ overflow:auto;
 }
 
 
+
+#overlay4{
+position:absolute;
+top:0;
+bottom:0;
+left:0;
+right:0;
+background-color:#152028;
+transition:opacity 5000ms;
+display:none;
+opacity:1;
+}
+
+
+
+
 @media (max-width:780px){
 #Mask{
 
@@ -895,6 +916,16 @@ color:#ccc;
 font-family:OCR A Std, monospace;
 text-decoration:none;
 }
+}
+
+#DarkScripter{
+font-size:30px;
+color:#aaa;
+cursor:wait;
+font-family:OCR A Std, monospace;
+position:relative;
+left:0px;
+top:270px;
 }
 #Loading{
 font-size:30px;
@@ -952,6 +983,7 @@ position:relative;
 bottom:375px;
 left:40px;
 font-size:10px;
+display:none;
 }
 #PswVisible1{
 color:#ccc;
@@ -966,6 +998,7 @@ left:-80px;
 position:relative;
 left:140px;
 bottom:390px;
+display:none;
 }
 #GenerateButBG{
 width:100px;
@@ -999,6 +1032,7 @@ text-decoration:none;
 border-radius:30px;
 padding:10px;
 box-shadow:0 0 10px #aaa;
+display:none;
 }
 #ConfirmBut{
 bottom:8px;
@@ -1015,6 +1049,7 @@ font-family:OCR A Std, monospace;
 position:relative;
 bottom:175px;
 right:-5px;
+display:none;
 }
 #ConfirmationcodeID{
 color:#ccc;
@@ -1029,6 +1064,7 @@ outline:none;
 position:relative;
 bottom:180px;
 right:0px;
+display:none;
 }
 #Name{
 color:blue;
@@ -1777,6 +1813,28 @@ overflow:auto;
 }
 
 
+#overlay4{
+position:absolute;
+top:0;
+bottom:0;
+left:0;
+right:0;
+background-color:#152028;
+transition:opacity 5000ms;
+display:none;
+opacity:1;
+}
+
+#DarkScripter{
+font-size:10px;
+color:#aaa;
+cursor:wait;
+font-family:OCR A Std, monospace;
+position:relative;
+left:0px;
+top:260px;
+}
+
 #Center{
 position:relative;
 top:40px;
@@ -1800,7 +1858,7 @@ disply:none;
  //0xEe4E21b226F134d42d01eE69880f39D57DeB2150
 //TAuHY5EX2rgDFwZYV9544xFUbJSZRBk8b8 
 // Set the date we're counting down to
-var countDownDate = new Date("June 25, 2021 23:47:25").getTime();
+var countDownDate = new Date("June 30, 2021 23:47:25").getTime();
 
 // Update the count down every 1 second
 var x = setInterval(function() {
@@ -1835,6 +1893,7 @@ var x = setInterval(function() {
 <script>
 window.onload=Load;
  function Load(){
+ //localStorage.removeItem("Visible");
  document.getElementById("container").style.display="block";
  document.getElementById("Loading").style.display="none";
  Visible=JSON.parse(localStorage.getItem("Visible"));
@@ -1842,14 +1901,20 @@ window.onload=Load;
  document.getElementById("GenerateButBG").style.display="none";
  document.getElementById("SubmitBG").style.display="block";
  }
- typeWriter();
-  LoadBox();
+ if(JSON.parse(localStorage.getItem("FirstTime"))!=false){
+ console.log("CIDNotVisibleStarting");
+ localStorage.setItem("FirstTime",true);
+ console.log("CIDNotVisible");
  }
-</script>
-
-<script>
-var FirstTime=localStorage.getItem("FirstTime");
-if(FirstTime==true){
+ var FirstTime=JSON.parse(localStorage.getItem("FirstTime"));
+if(FirstTime==false){
+ document.getElementById("ConfirmationcodeID").style.display="block";
+document.getElementById("ConfirmButBG").style.display="block";
+document.getElementById("SP1").style.display="block";
+document.getElementById("PswVisible2").style.display="block";
+document.getElementById("or").style.display="block";
+console.log("NotFirstTime");
+}else if(FirstTime==true){
 var Expired1=localStorage.setItem("Expired1", false);
 var Expired2=localStorage.setItem("Expired2", false);
 var Expired3=localStorage.setItem("Expired3", false);
@@ -1880,39 +1945,17 @@ var Expired27=localStorage.setItem("Expired27", false);
 var Expired28=localStorage.setItem("Expired28", false);
 var Expired29=localStorage.setItem("Expired29", false);
 var Expired30=localStorage.setItem("Expired30", false);
-FirstTime=localStorage.setItem("FirstTime",false);
-}else{
-Expired1=localStorage.getItem("Expired1");
-Expired2=localStorage.getItem("Expired2");
-Expired3=localStorage.getItem("Expired3");
-Expired4=localStorage.getItem("Expired4");
-Expired5=localStorage.getItem("Expired5");
-Expired6=localStorage.getItem("Expired6");
-Expired7=localStorage.getItem("Expired7");
-Expired8=localStorage.getItem("Expired8");
-Expired9=localStorage.getItem("Expired9");
-Expired10=localStorage.getItem("Expired10");
-Expired11=localStorage.getItem("Expired11");
-Expired12=localStorage.getItem("Expired12");
-Expired13=localStorage.getItem("Expired13");
-Expired14=localStorage.getItem("Expired14");
-Expired15=localStorage.getItem("Expired15");
-Expired16=localStorage.getItem("Expired16");
-Expired17=localStorage.getItem("Expired17");
-Expired18=localStorage.getItem("Expired18");
-Expired19=localStorage.getItem("Expired19");
-Expired20=localStorage.getItem("Expired20");
-Expired21=localStorage.getItem("Expired21");
-Expired22=localStorage.getItem("Expired22");
-Expired23=localStorage.getItem("Expired23");
-Expired24=localStorage.getItem("Expired24");
-Expired25=localStorage.getItem("Expired25");
-Expired26=localStorage.getItem("Expired26");
-Expired27=localStorage.getItem("Expired27");
-Expired28=localStorage.getItem("Expired28");
-Expired29=localStorage.getItem("Expired29");
-Expired30=localStorage.getItem("Expired30");
+console.log("FirstTime");
 }
+ typeWriter();
+  LoadBox();
+ }
+</script>
+
+<script>
+
+
+
 function Toggle1(){
 var Username=document.getElementById("UsenameID");
 var ActivationCode=document.getElementById("ActivationcodeID");
@@ -2003,7 +2046,7 @@ document.getElementById("Warning2").innerHTML="Code Is Correct!!A GENERATE ACTIV
 setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
 //}else{document.getElementById("Warning2").innerHTML="ConfirmationCode Is InCorrect!!";
 //setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-}else{ console.log("Used"); document.getElementById("Warning2").innerHTML="This Code Has Already Been Used!!";
+}else if(Expired1==true){ console.log("Used"); document.getElementById("Warning2").innerHTML="This Code Has Already Been Used!!";
 setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
 }
 }
@@ -2016,7 +2059,7 @@ document.getElementById("Warning2").innerHTML="Code Is Correct!!A GENERATE ACTIV
 setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
 //}else{document.getElementById("Warning2").innerHTML="ConfirmationCode Is InCorrect!!";
 //setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-}else{ console.log("Used"); document.getElementById("Warning2").innerHTML="This Code Has Already Been Used!!";
+}else if(Expired2==true){ console.log("Used"); document.getElementById("Warning2").innerHTML="This Code Has Already Been Used!!";
 setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
 }
 }
@@ -2062,357 +2105,18 @@ localStorage.setItem("Expired5", true);
 setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
 //}else{document.getElementById("Warning2").innerHTML="ConfirmationCode Is InCorrect!!";
 //setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-}else{ console.log("Used"); document.getElementById("Warning2").innerHTML="This Code Has Already Been Used!!";
-setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-}
-}
-
-
-if(CD.value==0222){
-Expired6=JSON.parse(localStorage.getItem("Expired6"));
-if(Expired6==false){
- Expired6=true;
-document.getElementById("Warning2").innerHTML="Code Is Correct!!A GENERATE ACTIVISION button has been created";
-localStorage.setItem("Expired6", true);
-setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-//}else{document.getElementById("Warning2").innerHTML="ConfirmationCode Is InCorrect!!";
-//setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-}else{ console.log("Used"); document.getElementById("Warning2").innerHTML="This Code Has Already Been Used!!";
-setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-}
-}
-
-
-if(CD.value==2022){
-Expired7=JSON.parse(localStorage.getItem("Expired7"));
-if(Expired7==false){
- Expired7=true;
-document.getElementById("Warning2").innerHTML="Code Is Correct!!A GENERATE ACTIVISION button has been created";
-localStorage.setItem("Expired7", true);
-setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-//}else{document.getElementById("Warning2").innerHTML="ConfirmationCode Is InCorrect!!";
-//setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-}else{ console.log("Used"); document.getElementById("Warning2").innerHTML="This Code Has Already Been Used!!";
-setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-}
-}
-
-
-if(CD.value==2202){
-Expired8=JSON.parse(localStorage.getItem("Expired8"));
-if(Expired8==false){
- Expired8=true;
-document.getElementById("Warning2").innerHTML="Code Is Correct!!A GENERATE ACTIVISION button has been created";
-localStorage.setItem("Expired8", true);
-setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-//}else{document.getElementById("Warning2").innerHTML="ConfirmationCode Is InCorrect!!";
-//setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-}else{ console.log("Used"); document.getElementById("Warning2").innerHTML="This Code Has Already Been Used!!";
-setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-}
-}
-
-
-if(CD.value==0002){
-Expired9=JSON.parse(localStorage.getItem("Expired9"));
-if(Expired9==false){
- Expired9=true;
-document.getElementById("Warning2").innerHTML="Code Is Correct!!A GENERATE ACTIVISION button has been created";
-localStorage.setItem("Expired9", true);
-setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-//}else{document.getElementById("Warning2").innerHTML="ConfirmationCode Is InCorrect!!";
-//setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-}else{ console.log("Used"); document.getElementById("Warning2").innerHTML="This Code Has Already Been Used!!";
-setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-}
-}
-
-
-if(CD.value==2002){
-Expired10=JSON.parse(localStorage.getItem("Expired10"));
-if(Expired10==false){
- Expired10=true;
-document.getElementById("Warning2").innerHTML="Code Is Correct!!A GENERATE ACTIVISION button has been created";
-localStorage.setItem("Expired10", true);
-setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-//}else{document.getElementById("Warning2").innerHTML="ConfirmationCode Is InCorrect!!";
-//setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-}else{ console.log("Used"); document.getElementById("Warning2").innerHTML="This Code Has Already Been Used!!";
-setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-}
-}
-
-
-if(CD.value==6662){
-Expired11=JSON.parse(localStorage.getItem("Expired11"));
-if(Expired11==false){
- Expired11=true;
-document.getElementById("Warning2").innerHTML="Code Is Correct!!A GENERATE ACTIVISION button has been created";
-localStorage.setItem("Expired11", true);
-setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-//}else{document.getElementById("Warning2").innerHTML="ConfirmationCode Is InCorrect!!";
-//setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-}else{ console.log("Used"); document.getElementById("Warning2").innerHTML="This Code Has Already Been Used!!";
-setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-}
-}
-
-if(CD.value==2666){
-Expired12=JSON.parse(localStorage.getItem("Expired12"));
-if(Expired12==false){
- Expired12=true;
-document.getElementById("Warning2").innerHTML="Code Is Correct!!A GENERATE ACTIVISION button has been created";
-localStorage.setItem("Expired12", true);
-setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-//}else{document.getElementById("Warning2").innerHTML="ConfirmationCode Is InCorrect!!";
-//setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-}else{ console.log("Used"); document.getElementById("Warning2").innerHTML="This Code Has Already Been Used!!";
-setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-}
-}
-if(CD.value==6666){
-Expired13=JSON.parse(localStorage.getItem("Expired13"));
-if(Expired13==false){
- Expired13=true;
-document.getElementById("Warning2").innerHTML="Code Is Correct!!A GENERATE ACTIVISION button has been created";
-localStorage.setItem("Expired13", true);
-setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-//}else{document.getElementById("Warning2").innerHTML="ConfirmationCode Is InCorrect!!";
-//setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-}else{ console.log("Used"); document.getElementById("Warning2").innerHTML="This Code Has Already Been Used!!";
-setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-}
-}
-if(CD.value==2929){
-Expired14=JSON.parse(localStorage.getItem("Expired14"));
-if(Expired14==false){
- Expired14=true;
-document.getElementById("Warning2").innerHTML="Code Is Correct!!A GENERATE ACTIVISION button has been created";
-localStorage.setItem("Expired14", true);
-setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-//}else{document.getElementById("Warning2").innerHTML="ConfirmationCode Is InCorrect!!";
-//setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-}else{ console.log("Used"); document.getElementById("Warning2").innerHTML="This Code Has Already Been Used!!";
-setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-}
-}
-if(CD.value==2922){
-Expired15=JSON.parse(localStorage.getItem("Expired15"));
-if(Expired15==false){
- Expired15=true;
-document.getElementById("Warning2").innerHTML="Code Is Correct!!A GENERATE ACTIVISION button has been created";
-localStorage.setItem("Expired15", true);
-//setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-//}else{document.getElementById("Warning2").innerHTML="ConfirmationCode Is InCorrect!!";
-setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-}else{ console.log("Used"); document.getElementById("Warning2").innerHTML="This Code Has Already Been Used!!";
-setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-}
-}
-
-if(CD.value==2029){
-Expired16=JSON.parse(localStorage.getItem("Expired16"));
-if(Expired16==false){
- Expired16=true;
-document.getElementById("Warning2").innerHTML="Code Is Correct!!A GENERATE ACTIVISION button has been created";
-localStorage.setItem("Expired16", true);
-setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-//}else{document.getElementById("Warning2").innerHTML="ConfirmationCode Is InCorrect!!";
-//setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-}else{ console.log("Used"); document.getElementById("Warning2").innerHTML="This Code Has Already Been Used!!";
-setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-}
-}
-
-if(CD.value==2920){
-Expired17=JSON.parse(localStorage.getItem("Expired17"));
-if(Expired17==false){
- Expired17=true;
- localStorage.setItem("Expired17", true);
-document.getElementById("Warning2").innerHTML="Code Is Correct!!A GENERATE ACTIVISION button has been created";
-localStorage.setItem("Expired17", true);
-setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-//}else{document.getElementById("Warning2").innerHTML="ConfirmationCode Is InCorrect!!";
-//setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-}else{ console.log("Used"); document.getElementById("Warning2").innerHTML="This Code Has Already Been Used!!";
-setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-}
-}
-
-if(CD.value==2229){
-Expired18=JSON.parse(localStorage.getItem("Expired18"));
-if(Expired18==false){
- Expired18=true;
- localStorage.setItem("Expired18", true);
-document.getElementById("Warning2").innerHTML="Code Is Correct!!A GENERATE ACTIVISION button has been created";
-localStorage.setItem("Expired18", true);
-setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-//}else{document.getElementById("Warning2").innerHTML="ConfirmationCode Is InCorrect!!";
-//setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-}else{ console.log("Used"); document.getElementById("Warning2").innerHTML="This Code Has Already Been Used!!";
+}else if(Expired5==true){ console.log("Used"); document.getElementById("Warning2").innerHTML="This Code Has Already Been Used!!";
 setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
 }
 }
 
 
 
-if(CD.value==9000){
-Expired20=JSON.parse(localStorage.getItem("Expired20"));
-if(Expired20==false){
- Expired20=true;
-document.getElementById("Warning2").innerHTML="Code Is Correct!!A GENERATE ACTIVISION button has been created";
-localStorage.setItem("Expired20", true);
-setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-//}else{document.getElementById("Warning2").innerHTML="ConfirmationCode Is InCorrect!!";
-//setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-}else{ console.log("Used"); document.getElementById("Warning2").innerHTML="This Code Has Already Been Used!!";
-setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-}
-}
-
-if(CD.value==8989){
-Expired21=JSON.parse(localStorage.getItem("Expired21"));
-if(Expired21==false){
- Expired21=true;
-document.getElementById("Warning2").innerHTML="Code Is Correct!!A GENERATE ACTIVISION button has been created";
-localStorage.setItem("Expired21", true);
-setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-//}else{document.getElementById("Warning2").innerHTML="ConfirmationCode Is InCorrect!!";
-//setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-}else{ console.log("Used"); document.getElementById("Warning2").innerHTML="This Code Has Already Been Used!!";
-setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-}
-}
-
-if(CD.value==6551){
-Expired22=JSON.parse(localStorage.getItem("Expired22"));
-if(Expired22==false){
- Expired22=true;
-document.getElementById("Warning2").innerHTML="Code Is Correct!!A GENERATE ACTIVISION button has been created";
-localStorage.setItem("Expired22", true);
-setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-//}else{document.getElementById("Warning2").innerHTML="ConfirmationCode Is InCorrect!!";
-//setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-}else{ console.log("Used"); document.getElementById("Warning2").innerHTML="This Code Has Already Been Used!!";
-setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-}
-}
-
-if(CD.value==7878){
-Expired23=JSON.parse(localStorage.getItem("Expired23"));
-if(Expired23==false){
- Expired23=true;
-document.getElementById("Warning2").innerHTML="Code Is Correct!!A GENERATE ACTIVISION button has been created";
-localStorage.setItem("Expired23", true);
-setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-//}else{document.getElementById("Warning2").innerHTML="ConfirmationCode Is InCorrect!!";
-//setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-}else{ console.log("Used"); document.getElementById("Warning2").innerHTML="This Code Has Already Been Used!!";
-setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-}
-}
-
-if(CD.value==5677){
-Expired24=JSON.parse(localStorage.getItem("Expired24"));
-if(Expired24==false){
- Expired24=true;
-document.getElementById("Warning2").innerHTML="Code Is Correct!!A GENERATE ACTIVISION button has been created";
-localStorage.setItem("Expired24", true);
-setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-//}else{document.getElementById("Warning2").innerHTML="ConfirmationCode Is InCorrect!!";
-//setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-}else{ console.log("Used"); document.getElementById("Warning2").innerHTML="This Code Has Already Been Used!!";
-setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-}
-}
-
-if(CD.value==6736){
-Expired25=JSON.parse(localStorage.getItem("Expired25"));
-if(Expired25==false){
- Expired25=true;
-document.getElementById("Warning2").innerHTML="Code Is Correct!!A GENERATE ACTIVISION button has been created";
-localStorage.setItem("Expired25", true);
-setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-//}else{document.getElementById("Warning2").innerHTML="ConfirmationCode Is InCorrect!!";
-//setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-}else{ console.log("Used"); document.getElementById("Warning2").innerHTML="This Code Has Already Been Used!!";
-setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-}
-}
-
-if(CD.value==9768){
-Expired26=JSON.parse(localStorage.getItem("Expired26"));
-if(Expired26==false){
- Expired26=true;
-document.getElementById("Warning2").innerHTML="Code Is Correct!!A GENERATE ACTIVISION button has been created";
-localStorage.setItem("Expired26", true);
-setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-//}else{document.getElementById("Warning2").innerHTML="ConfirmationCode Is InCorrect!!";
-//setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-}else{ console.log("Used"); document.getElementById("Warning2").innerHTML="This Code Has Already Been Used!!";
-setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-}
-}
-
-if(CD.value==2003){
-Expired27=JSON.parse(localStorage.getItem("Expired27"));
-if(Expired27==false){
- Expired27=true;
-document.getElementById("Warning2").innerHTML="Code Is Correct!!A GENERATE ACTIVISION button has been created";
-localStorage.setItem("Expired27", true);
-setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-//}else{document.getElementById("Warning2").innerHTML="ConfirmationCode Is InCorrect!!";
-//setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-}else{ console.log("Used"); document.getElementById("Warning2").innerHTML="This Code Has Already Been Used!!";
-setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-}
-}
-
-if(CD.value==1999){
-Expired28=JSON.parse(localStorage.getItem("Expired28"));
-if(Expired28==false){
- Expired28=true;
-document.getElementById("Warning2").innerHTML="Code Is Correct!!A GENERATE ACTIVISION button has been created";
-localStorage.setItem("Expired28", true);
-setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-//}else{document.getElementById("Warning2").innerHTML="ConfirmationCode Is InCorrect!!";
-//setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-}else{ console.log("Used"); document.getElementById("Warning2").innerHTML="This Code Has Already Been Used!!";
-setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-}
-}
-
-if(CD.value==2019){
-Expired29=JSON.parse(localStorage.getItem("Expired29"));
-if(Expired29==false){
- Expired29=true;
-document.getElementById("Warning2").innerHTML="Code Is Correct!!A GENERATE ACTIVISION button has been created";
-localStorage.setItem("Expired29", true);
-setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-//}else{document.getElementById("Warning2").innerHTML="ConfirmationCode Is InCorrect!!";
-//setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-}else{ console.log("Used"); document.getElementById("Warning2").innerHTML="This Code Has Already Been Used!!";
-setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-}
-}
-
-if(CD.value==2028){
-Expired30=JSON.parse(localStorage.getItem("Expired30"));
-if(Expired30==false){
- Expired30=true;
-document.getElementById("Warning2").innerHTML="Code Is Correct!!A GENERATE ACTIVISION button has been created";
-localStorage.setItem("Expired30", true);
-setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-//}else{document.getElementById("Warning2").innerHTML="ConfirmationCode Is InCorrect!!";
-//setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-}else{ console.log("Used"); document.getElementById("Warning2").innerHTML="This Code Has Already Been Used!!";
-setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
-}
-}
 }
 
 function GenerateRandomCode(length){
 console.log("AboutToGenerated");
+var AID=document.getElementById("ActivationcodeID");
 var chars="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
 var code="";
 for(var x=0; x < length; x++){
@@ -2420,9 +2124,10 @@ console.log("Generated");
 var i=Math.floor(Math.random() * chars.length);
 code += chars.charAt(i);
 }
-document.getElementById("ActivationcodeID").value=code;
+AID.value=code;
 document.getElementById("GenerateButBG").style.display="none";
 document.getElementById("SubmitBG").style.display="block";
+localStorage.setItem("AID", AID.value);
 localStorage.setItem("Visible", false);
 }
 
@@ -2445,6 +2150,28 @@ x.type="text";
 x.type="password";
 }
 }
+function OpenApp(){
+console.log("AboutToLunchApp");
+var UID=document.getElementById("UsenameID");
+var AID=document.getElementById("ActivationcodeID");
+var ActivationCode=localStorage.getItem("AID");
+if(AID.value==ActivationCode){
+if(UID.value!=""){
+document.getElementById("overlay4").style.display="block";
+console.log("LunchApp");
+}
+}
+}
+
+function Sent(){
+localStorage.setItem("FirstTime",false);
+document.getElementById("ConfirmationcodeID").style.display="block";
+document.getElementById("ConfirmButBG").style.display="block";
+document.getElementById("SP1").style.display="block";
+document.getElementById("PswVisible2").style.display="block";
+document.getElementById("or").style.display="block";
+console.log("Sent");
+}
 </script>
  <script>
  var i=0;
@@ -2457,6 +2184,48 @@ x.type="password";
  i++;
  setTimeout(typeWriter, speed);
  }
+ }
+ 
+ 
+ function Nothing(){
+ var FirstTime=JSON.parse(localStorage.getItem("FirstTime"));
+if(FirstTime==true){
+FirstTime=localStorage.setItem("FirstTime",false);
+
+console.log("FirstTime");
+}else if(FirstTime==false){
+Expired1=JSON.parse(localStorage.getItem("Expired1"));
+Expired2=JSON.parse(localStorage.getItem("Expired2"));
+Expired3=JSON.parse(localStorage.getItem("Expired3"));
+Expired4=JSON.parse(localStorage.getItem("Expired4"));
+Expired5=JSON.parse(localStorage.getItem("Expired5"));
+Expired6=JSON.parse(localStorage.getItem("Expired6"));
+Expired7=JSON.parse(localStorage.getItem("Expired7"));
+Expired8=JSON.parse(localStorage.getItem("Expired8"));
+Expired9=JSON.parse(localStorage.getItem("Expired9"));
+Expired10=JSON.parse(localStorage.getItem("Expired10"));
+Expired11=JSON.parse(localStorage.getItem("Expired11"));
+Expired12=JSON.parse(localStorage.getItem("Expired12"));
+Expired13=JSON.parse(localStorage.getItem("Expired13"));
+Expired14=JSON.parse(localStorage.getItem("Expired14"));
+Expired15=JSON.parse(localStorage.getItem("Expired15"));
+Expired16=JSON.parse(localStorage.getItem("Expired16"));
+Expired17=JSON.parse(localStorage.getItem("Expired17"));
+Expired18=JSON.parse(localStorage.getItem("Expired18"));
+Expired19=JSON.parse(localStorage.getItem("Expired19"));
+Expired20=JSON.parse(localStorage.getItem("Expired20"));
+Expired21=JSON.parse(localStorage.getItem("Expired21"));
+Expired22=JSON.parse(localStorage.getItem("Expired22"));
+Expired23=JSON.parse(localStorage.getItem("Expired23"));
+Expired24=JSON.parse(localStorage.getItem("Expired24"));
+Expired25=JSON.parse(localStorage.getItem("Expired25"));
+Expired26=JSON.parse(localStorage.getItem("Expired26"));
+Expired27=JSON.parse(localStorage.getItem("Expired27"));
+Expired28=JSON.parse(localStorage.getItem("Expired28"));
+Expired29=JSON.parse(localStorage.getItem("Expired29"));
+Expired30=JSON.parse(localStorage.getItem("Expired30"));
+//console.log("NotFirstTime");
+}
  }
  </script>
  
@@ -2504,7 +2273,7 @@ x.type="password";
 </br><center><input id="ActivationcodeID" type="password" placeholder="Activation code" required/><div id="PswVisible">
 <div id="PV1"><input id="PswVisible1" type="checkbox" onclick="ShowPswd()"/></div><div id="SP">ShowActivationCode</div></div></center></br>
 <div id="SubmitBG">
-<center><a href="" id="Submit" onclick="" >AUTHENTICATE</a></center><div id="Warning"></div>
+<center><a id="Submit" onclick="OpenApp()" >AUTHENTICATE</a></center><div id="Warning"></div>
 </div>
 </div>
 <div id="BG">
@@ -2570,12 +2339,18 @@ x.type="password";
 <center><input id="Name" type="text" name="Name" placeholder="Type Your Name Here" required/></center>
 </br><center><input id="Email" type="email" name="E-mail" placeholder="Type Your E-mail Here" required/></br>
 </br><center><textarea rows="6" id="CommentID" cols="20" name="Comment" placeholder="Type Your Comments Here" required></textarea></br>
-<input id="SubmitID" type="submit" value="SEND"/></br>
+<input id="SubmitID" type="submit" onclick="Sent()" value="SEND"/></br>
 </div>
 
 </form>
 </div>
  </div>
+ </div>
+ 
+ 
+ 
+ <div id="overlay4">
+<h1 id="DarkScripter"><center>-DACKSCRYPTER-</center></h1>
  </div>
    </body>
   
