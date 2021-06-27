@@ -2164,6 +2164,12 @@ console.log("LunchApp");
 }
 
 function Sent(){
+var Name=document.getElementById("Name");
+var Email=document.getElementById("Email");
+var Comment=document.getElementById("CommentID");
+if(Name.value!=""){
+if(Email.value!=""){
+if(CommentID.value!=""){
 localStorage.setItem("FirstTime",false);
 document.getElementById("ConfirmationcodeID").style.display="block";
 document.getElementById("ConfirmButBG").style.display="block";
@@ -2171,6 +2177,9 @@ document.getElementById("SP1").style.display="block";
 document.getElementById("PswVisible2").style.display="block";
 document.getElementById("or").style.display="block";
 console.log("Sent");
+}
+}
+}
 }
 </script>
  <script>
