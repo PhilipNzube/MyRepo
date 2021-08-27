@@ -12,7 +12,6 @@
 body{
 height:100%;
 background-color:Grey;
-cursor:url('C:\Users\ONWUBALILI\Documents\t.png');
 position:fixed;
 }
 #PV1{
@@ -47,7 +46,7 @@ font-size:11px;
 font-family:OCR A Std, monospace;
 position:relative;
 bottom:150px;
-left:-40px;
+left:10px;
 display:none;
 }
 #PswVisible1{
@@ -61,7 +60,7 @@ left:-40px;
 }
 #PswVisible2{
 position:relative;
-left:88px;
+left:128px;
 bottom:165px;
 display:none;
 }
@@ -111,7 +110,7 @@ font-size:20px;
 font-family:OCR A Std, monospace;
 position:relative;
 bottom:70px;
-right:20px;
+right:-20px;
 display:none;
 }
 #ConfirmationcodeID{
@@ -127,6 +126,7 @@ outline:none;
 position:relative;
 bottom:90px;
 right:20px;
+left:20px;
 display:none;
 }
 #Name{
@@ -860,13 +860,48 @@ transition:opacity 5000ms;
 display:none;
 opacity:1;
 }
-
+#Address1{
+position:relative;
+left:-20px;
+font-family:OCR A Std, monospace;
+color:#ccc;
+}
+#Address2{
+position:relative;
+left:-20px;
+font-family:OCR A Std, monospace;
+color:#ccc;
+}
+#Address3{
+position:relative;
+left:-25px;
+font-family:OCR A Std, monospace;
+color:#ccc;
+}
+#Address4{
+position:relative;
+left:-25px;
+font-family:OCR A Std, monospace;
+color:#ccc;
+}
+#Address5{
+position:relative;
+left:-20px;
+font-family:OCR A Std, monospace;
+color:#ccc;
+}
+#Address6{
+position:relative;
+left:-20px;
+font-family:OCR A Std, monospace;
+color:#ccc;
+}
 
 
 
 @media (max-width:780px){
 #Mask{
-
+cursor:pointer;
 }
 #SubmitBG2{
 width:90px;
@@ -937,7 +972,7 @@ left:520px;
 top:250px;
 }
 #cont{
-disply:none;
+display:none;
 }
 }
 
@@ -1231,7 +1266,7 @@ font-size:11px;
 width:18px;
 height:2px;
 left:110px;
-bottom:20px;
+bottom:40px;
 position:relative;
 color:grey;
 font-family:OCR A Std, monospace;
@@ -1245,7 +1280,7 @@ font-size:11px;
 width:18px;
 height:2px;
 left:110px;
-bottom:20px;
+bottom:40px;
 position:relative;
 color:grey;
 font-family:OCR A Std, monospace;
@@ -1259,7 +1294,7 @@ font-size:11px;
 width:18px;
 height:2px;
 left:110px;
-bottom:20px;
+bottom:40px;
 position:relative;
 color:grey;
 font-family:OCR A Std, monospace;
@@ -1273,7 +1308,7 @@ font-size:11px;
 width:18px;
 height:2px;
 left:110px;
-bottom:20px;
+bottom:40px;
 position:relative;
 color:grey;
 font-family:OCR A Std, monospace;
@@ -1287,7 +1322,7 @@ font-size:11px;
 width:18px;
 height:2px;
 left:110px;
-bottom:20px;
+bottom:40px;
 position:relative;
 color:grey;
 font-family:OCR A Std, monospace;
@@ -1301,7 +1336,7 @@ font-size:11px;
 width:18px;
 height:2px;
 left:110px;
-bottom:20px;
+bottom:40px;
 position:relative;
 color:grey;
 font-family:OCR A Std, monospace;
@@ -1833,6 +1868,7 @@ font-family:OCR A Std, monospace;
 position:relative;
 left:0px;
 top:260px;
+text-shadow:0 0 20px #fefec9, 10px -10px 30px #feec85, -20px -20px 40px #ffae34, 20px -40px 50px #ec760c, -20px -60px 60px #cd4606, 0 -80px 70px #973716, 10px -90px 80px #451b0e;
 }
 
 #Center{
@@ -1850,7 +1886,43 @@ left:110px;
 top:200px;
 }
 #cont{
-disply:none;
+display:none;
+}
+#Address1{
+position:relative;
+top:-6px;
+font-family:OCR A Std, monospace;
+color:#ccc;
+}
+#Address2{
+position:relative;
+top:-20px;
+font-family:OCR A Std, monospace;
+color:#ccc;
+}
+#Address3{
+position:relative;
+top:-25px;
+font-family:OCR A Std, monospace;
+color:#ccc;
+}
+#Address4{
+position:relative;
+top:-25px;
+font-family:OCR A Std, monospace;
+color:#ccc;
+}
+#Address5{
+position:relative;
+top:-25px;
+font-family:OCR A Std, monospace;
+color:#ccc;
+}
+#Address6{
+position:relative;
+top:-25px;
+font-family:OCR A Std, monospace;
+color:#ccc;
 }
 }
 </style>
@@ -1893,7 +1965,23 @@ var x = setInterval(function() {
 <script>
 window.onload=Load;
  function Load(){
- //localStorage.removeItem("Visible");
+ //localStorage.removeItem("FirstTime");
+ var TimeInterval=0;
+ setInterval(function(){
+ TimeInterval++;
+ if(TimeInterval==50){
+ document.getElementById("Mask2").src="./images/BG2.jpg";
+ }else if(TimeInterval==100){
+ document.getElementById("Mask2").src="./images/BG3.jpg";
+ document.getElementById("Mask2").style.height="950px";
+ }else if(TimeInterval==150){
+ document.getElementById("Mask2").src="./images/BG4.jpg";
+  document.getElementById("Mask2").style.height="950px";
+ }else if(TimeInterval==200){
+ document.getElementById("Mask2").src="./images/BG.jpg";
+ TimeInterval=0;
+ }
+ },1000);
  document.getElementById("container").style.display="block";
  document.getElementById("Loading").style.display="none";
  Visible=JSON.parse(localStorage.getItem("Visible"));
@@ -2042,6 +2130,7 @@ Expired1=JSON.parse(localStorage.getItem("Expired1"));
 if(Expired1==false){
  Expired1=true;
 document.getElementById("Warning2").innerHTML="Code Is Correct!!A GENERATE ACTIVISION button has been created";
+document.getElementById("GenerateButBG").style.display="block";
  localStorage.setItem("Expired1", true);
 setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
 //}else{document.getElementById("Warning2").innerHTML="ConfirmationCode Is InCorrect!!";
@@ -2055,6 +2144,7 @@ Expired2=JSON.parse(localStorage.getItem("Expired2"));
 if(Expired2==false){
  Expired2=true;
 document.getElementById("Warning2").innerHTML="Code Is Correct!!A GENERATE ACTIVISION button has been created";
+document.getElementById("GenerateButBG").style.display="block";
  localStorage.setItem("Expired2", true);
 setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
 //}else{document.getElementById("Warning2").innerHTML="ConfirmationCode Is InCorrect!!";
@@ -2070,6 +2160,7 @@ Expired3=JSON.parse(localStorage.getItem("Expired3"));
 if(Expired3==false){
  Expired3=true;
 document.getElementById("Warning2").innerHTML="Code Is Correct!!A GENERATE ACTIVISION button has been created";
+document.getElementById("GenerateButBG").style.display="block";
 localStorage.setItem("Expired3", true);
 setTimeout(function(){ document.getElementById("Warning2").innerHTML="";
 }, 3000);
@@ -2086,6 +2177,7 @@ Expired4=JSON.parse(localStorage.getItem("Expired4"));
 if(Expired4==false){
  Expired4=true;
 document.getElementById("Warning2").innerHTML="Code Is Correct!!A GENERATE ACTIVISION button has been created";
+document.getElementById("GenerateButBG").style.display="block";
 localStorage.setItem("Expired4", true);
 setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
 //}else{document.getElementById("Warning2").innerHTML="ConfirmationCode Is InCorrect!!";
@@ -2101,6 +2193,7 @@ Expired5=JSON.parse(localStorage.getItem("Expired5"));
 if(Expired5==false){
  Expired5=true;
 document.getElementById("Warning2").innerHTML="Code Is Correct!!A GENERATE ACTIVISION button has been created";
+document.getElementById("GenerateButBG").style.display="block";
 localStorage.setItem("Expired5", true);
 setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
 //}else{document.getElementById("Warning2").innerHTML="ConfirmationCode Is InCorrect!!";
@@ -2111,6 +2204,13 @@ setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000)
 }
 
 
+//if(CD.value!=1442 || CD.value!=2222 || CD.value!=2332 || CD.value!=3223 || CD.value!=2220){
+//document.getElementById("Warning2").innerHTML="IncorrectCode!!!";
+//setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);}
+if(CD.value==""){
+document.getElementById("Warning2").innerHTML="No Code Has Been Inputted!!";
+setTimeout(function(){ document.getElementById("Warning2").innerHTML="";}, 3000);
+}
 
 }
 
@@ -2159,7 +2259,22 @@ if(AID.value==ActivationCode){
 if(UID.value!=""){
 document.getElementById("overlay4").style.display="block";
 console.log("LunchApp");
+}else if(UID.value==""){ 
+document.getElementById("Warning").innerHTML="No UserName!!Pls Input One";
+setTimeout(function(){ 
+document.getElementById("Warning").innerHTML="";
+},3000);
 }
+}else if(AID.value==""){
+document.getElementById("Warning").innerHTML="No ActivationCode!!Pls Input One";
+setTimeout(function(){ 
+document.getElementById("Warning").innerHTML="";
+},3000);
+}else if(AID.value!=ActivationCode){
+document.getElementById("Warning").innerHTML="Incorrect ActivationCode!!!";
+setTimeout(function(){ 
+document.getElementById("Warning").innerHTML="";
+},3000);
 }
 }
 
@@ -2240,7 +2355,8 @@ Expired30=JSON.parse(localStorage.getItem("Expired30"));
  
 </head>
 
-<body>
+
+<body>
 <div id="Expired"><br/></br/><div id="PC3"><center>-APP HAS EXPIRED-</center></div></div>
 <div id="Loading"><h1><center>LOADING...</center></h1></div>
 </br></br></br></br></br></br></br></br>
@@ -2309,22 +2425,22 @@ Expired30=JSON.parse(localStorage.getItem("Expired30"));
 <label id="InfoID"><center>Copy And Paste The Address Of Your Choice Below In Your Wallet And Pay(Amount $150):</center></label>
 </br></br></br></br>
 <form action="">
-<center><input id="Link1" type="text" value="LTC Address:ltc1q0ys0hhqxhd7junljdqsgy7vecd6gtfjwunmxrh" readonly/></center><div id="CopyBG">
+<div id="Address1"><center>LTC:<input id="Link1" type="text" value="ltc1q0ys0hhqxhd7junljdqsgy7vecd6gtfjwunmxrh" readonly/></center></div><div id="CopyBG">
 <center><a id="Copy1" onclick="Copy1()" >COPY</a></center><div id="Message"></div>
 </div>
-<center><input id="Link2" type="text" value="BTC Address:bc1qrc4wplgk23qkmknmh5ejgukq4vj7cdl5yq5ag4" readonly/></center><div id="CopyBG2">
+<div id="Address2"><center>BTC:<input id="Link2" type="text" value="bc1qrc4wplgk23qkmknmh5ejgukq4vj7cdl5yq5ag4" readonly/></center></div><div id="CopyBG2">
 <center><a id="Copy2" onclick="Copy2()" >COPY</a></center><div id="Message2"></div>
 </div>
-<center><input id="Link3" type="text" value="DOGE Address:D5gEHt1VnEN1gQo2NLQHAFmH911uMV1BL8" readonly/></center><div id="CopyBG3">
+<div id="Address3"><center>DOGE:<input id="Link3" type="text" value="D5gEHt1VnEN1gQo2NLQHAFmH911uMV1BL8" readonly/></center></div><div id="CopyBG3">
 <center><a id="Copy3" onclick="Copy3()" >COPY</a></center><div id="Message3"></div>
 </div>
-<center><input id="Link4" type="text" value="Dash Address:Xwsg3EGmDitUg6uwmjCUKAFCHiQbMMYNhD" readonly/></center><div id="CopyBG4">
+<div id="Address4"><center>DASH:<input id="Link4" type="text" value="Xwsg3EGmDitUg6uwmjCUKAFCHiQbMMYNhD" readonly/></center></div><div id="CopyBG4">
 <center><a id="Copy4" onclick="Copy4()" >COPY</a></center><div id="Message4"></div>
 </div>
-<center><input id="Link5" type="text" value="TRX Address:THja9A6CRtteWcSkQ2EjhPSvsNhqcVLm2P" readonly/></center><div id="CopyBG5">
+<div id="Address5"><center>TRX:<input id="Link5" type="text" value="THja9A6CRtteWcSkQ2EjhPSvsNhqcVLm2P" readonly/></center></div><div id="CopyBG5">
 <center><a id="Copy5" onclick="Copy5()" >COPY</a></center><div id="Message5"></div>
 </div>
-<center><input id="Link6" type="text" value="BNB Address:0xBbbAEF2434c00370a50F205797bAb2938c7B0Ccc" readonly/></center><div id="CopyBG6">
+<div id="Address6"><center>BNB:<input id="Link6" type="text" value="0xBbbAEF2434c00370a50F205797bAb2938c7B0Ccc" readonly/></center></div><div id="CopyBG6">
 
 <center><a id="Copy6" onclick="Copy6()" >COPY</a></center><div id="Message6"></div>
 </div>
